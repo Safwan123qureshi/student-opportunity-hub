@@ -64,6 +64,11 @@ src/
 
 Server components render static content; interactivity (tracker, filters, forms) lives in client components hydrated with the same markup to avoid React hydration mismatches.
 
+## Live
+
+- **Production site:** https://student-opportunity-hub-three.vercel.app
+- **Source code:** https://github.com/Safwan123qureshi/student-opportunity-hub
+
 ## Deployment (Vercel)
 
 1. Push the repository to GitHub.
