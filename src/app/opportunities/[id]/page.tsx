@@ -15,6 +15,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { CategoryBadge, VerificationBadge } from "@/components/badges";
 import { SaveButton } from "@/components/save-button";
+import { APP_NAME, SITE_URL } from "@/lib/constants";
 import { formatDate } from "@/lib/format";
 import { getOpportunityById, OPPORTUNITIES } from "@/lib/opportunities";
 
@@ -30,9 +31,23 @@ export async function generateMetadata({
   const { id } = await params;
   const opp = getOpportunityById(id);
   if (!opp) return { title: "Opportunity not found" };
+  const description = `${opp.organization} — ${opp.description.slice(0, 150)}…`;
   return {
     title: opp.title,
-    description: `${opp.organization} — ${opp.description.slice(0, 150)}…`,
+    description,
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      siteName: APP_NAME,
+      title: opp.title,
+      description,
+      url: `${SITE_URL}/opportunities/${opp.id}`,
+    },
+    twitter: {
+      card: "summary",
+      title: opp.title,
+      description,
+    },
   };
 }
 

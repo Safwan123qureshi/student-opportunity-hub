@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer";
 import { ToastProvider } from "@/components/toast-provider";
 import { TrackerProvider } from "@/components/tracker-provider";
 import { applyThemeScript } from "@/lib/theme-script";
+import { APP_NAME, SITE_URL } from "@/lib/constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,6 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Student Opportunity Hub Pakistan",
     template: "%s | Student Opportunity Hub Pakistan",
@@ -31,6 +33,24 @@ export const metadata: Metadata = {
     "HEC scholarships",
     "opportunities for Pakistani students",
   ],
+  applicationName: APP_NAME,
+  authors: [{ name: "Safwan Qureshi" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: APP_NAME,
+    title: APP_NAME,
+    description:
+      "Discover scholarships, internships, and free courses for Pakistani students. Save opportunities, check eligibility, and track your applications — all in one place.",
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary",
+    title: APP_NAME,
+    description:
+      "Discover scholarships, internships, and free courses for Pakistani students — with an eligibility checker and application tracker.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

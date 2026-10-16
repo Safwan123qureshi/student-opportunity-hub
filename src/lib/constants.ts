@@ -34,3 +34,10 @@ export const CATEGORY_DESCRIPTIONS: Record<Category, string> = {
 };
 
 export const APP_NAME = "Student Opportunity Hub Pakistan";
+
+/**
+ * Canonical production URL (the primary Vercel alias).
+ * Used for metadataBase, OpenGraph/Twitter cards, sitemap.xml and robots.txt.
+ */
+export const SITE_URL = "https://student-opportunity-hub-three.vercel.app";
+
